@@ -5,7 +5,7 @@ from youtube_search import YoutubeSearch
 @Client.on_message(filters.command('muzik'))
 async def muzikk(bot, message):
     try:
-        text = message.text.split("", 1)
+        text = message.text.split(" ", 1)
         aranacak = text[1]
         results = YoutubeSearch(aranacak, max_results=1).to_dict()
         if results:
