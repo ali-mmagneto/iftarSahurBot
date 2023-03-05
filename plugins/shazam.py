@@ -31,10 +31,7 @@ async def shazamtara(bot, message):
             print(bilgiler)
             i = bilgiler["track"]
             photo = f"{i['images']['coverart']}"
-            lyricss = f"{i['sections'][1]['text']}"
-            lyrics = ""
-            for a in lyricss:
-                lyrics += f"{a}\n"
+            lyrics = f"{i['sections'][1]['text']}"
             print(lyrics)
             satir = "\n"
             sarki = f"{i['title']}"
