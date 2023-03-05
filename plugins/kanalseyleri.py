@@ -1,3 +1,5 @@
+# CODED BY :d
+
 import pyrogram
 from pyrogram import Client, filters
 from config import OWNER_ID
