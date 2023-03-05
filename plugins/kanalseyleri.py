@@ -4,7 +4,7 @@ import pyrogram
 from pyrogram import Client, filters
 from config import OWNER_ID
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-
+from pyrogram.types import ChatMemberUpdated
 
 import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -14,13 +14,15 @@ LOGGER = logging.getLogger(__name__)
 
 
 @Client.on_message(filters.group & filters.service)
-async def hosveyabos(bot, message):
-    await bot.send_photo(
-        chat_id=message.chat.id,
-        photo="https://telegra.ph/file/5ea51a7229254f84767f6.jpg",
-        caption='Bu gruba beni eklediğin için teşekkürler. Kullanım için /start yazabilirsin.')
-    yenikanal = await bot.get_chat(message.chat.id)
-    await bot.send_message(OWNER_ID, f"#YeniKanalEklenmesi\n\n**Kanal Adı**: {yenikanal.title}\n**Kanal id**: {yenikanal.id}\n**Ekleyen**: {message.from_user.first_name}\n**Ekleyen id**: {message.from_user.id}\n\nEğer bu kanalı sevmediysen `/ayril {yenikanal.id}` komutu ile botu Çıkartabilirsin..")
+async def hosveyabos(bot, cmu: ChatMemberUpdated):
+    yeni = cmu.new_chat_member.user_id
+    if yeni == -1005708287366:
+        await bot.send_photo(
+            chat_id=message.chat.id,
+            photo="https://telegra.ph/file/5ea51a7229254f84767f6.jpg",
+            caption='Bu gruba beni eklediğin için teşekkürler. Kullanım için /start yazabilirsin.')
+        yenikanal = await bot.get_chat(message.chat.id)
+        await bot.send_message(OWNER_ID, f"#YeniKanalEklenmesi\n\n**Kanal Adı**: {yenikanal.title}\n**Kanal id**: {yenikanal.id}\n**Ekleyen**: {message.from_user.first_name}\n**Ekleyen id**: {message.from_user.id}\n\nEğer bu kanalı sevmediysen `/ayril {yenikanal.id}` komutu ile botu Çıkartabilirsin..")
 
 @Client.on_message(filters.command('ayril'))
 async def baybay(bot, message):
