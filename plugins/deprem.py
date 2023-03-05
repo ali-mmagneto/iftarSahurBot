@@ -30,5 +30,5 @@ async def deprembilgi(bot, message):
                     chat_id=message.chat.id, 
                     text=text) 
                 return
-     except Exception as e:
-         await message.reply_text(e) 
+    except Exception as e:
+        await message.reply_text(e) 
