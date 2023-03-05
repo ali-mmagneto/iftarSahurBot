@@ -25,6 +25,7 @@ async def baybay(bot, message):
     try:
         text = message.text.split(" ", 1)
         id = text[1]
+        k = await bot.get_chat(id)
         m = await bot.send_photo(
             chat_id=id, 
             photo="https://telegra.ph/file/b9099e8d2f4a7075ec395.jpg",
@@ -35,5 +36,6 @@ async def baybay(bot, message):
         except Exception:
             pass
         await bot.leave_chat(id)
+        await message.reply_text(f"Bașarıyla {k.title} Kanalından Çıkıldı")
     except Exception as e:
         await message.reply_text(e)
