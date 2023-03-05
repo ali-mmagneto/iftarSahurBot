@@ -14,7 +14,7 @@ async def muzikk(bot, message):
             thumbnail = results[0]["thumbnails"][0]
             duration = results[0]["duration"]
             views = results[0]["views"]
-            thumb_name = f'thumb{message.message_id}.jpg'
+            thumb_name = f'thumb{message.id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
