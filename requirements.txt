@@ -1,0 +1,4 @@
+unidecode
+pyrogram
+TgCrypto
+requests
