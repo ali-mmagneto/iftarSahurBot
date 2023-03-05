@@ -17,6 +17,7 @@ LOGGER = logging.getLogger(__name__)
 async def hosveyabos(bot, cmu: ChatMemberUpdated):
     yeni = cmu.new_chat_member.user_id
     me = await bot.get_me()
+    LOGGER.info(me)
     if yeni == me.user_id:
         await bot.send_photo(
             chat_id=message.chat.id,
