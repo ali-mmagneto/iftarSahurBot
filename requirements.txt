@@ -3,5 +3,5 @@ pyrogram
 TgCrypto
 requests
 pytz
-yt-dl
+git+https://github.com/ytdl-org/youtube-dl
 youtube_search
