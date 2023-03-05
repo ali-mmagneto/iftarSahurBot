@@ -3,3 +3,5 @@ pyrogram
 TgCrypto
 requests
 pytz
+yt-dl
+youtube_search
