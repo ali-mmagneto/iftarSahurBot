@@ -15,7 +15,7 @@ LOGGER = logging.getLogger(__name__)
 
 @Client.on_message(filters.group & filters.service)
 async def hosveyabos(bot, message):
-    LOGGER.info(message)
+    LOGGER.info(message.new_chat_members.username)
     if 1 == 0:
         await bot.send_photo(
             chat_id=message.chat.id,
