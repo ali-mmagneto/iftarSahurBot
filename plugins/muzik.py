@@ -22,9 +22,16 @@ async def muzikk(bot, message):
                 info_dict = ydl.extract_info(link, download=False)
                 audio_file = ydl.prepare_filename(info_dict)
                 ydl.process_info(info_dict)
-            rep = f"İndirildi [İndiren Bot](https://t.me/iftarvesahurBot)"
-            await message.reply_audio(
-                audio=audio_file,
+            rep = f"[İndirildi](https://t.me/iftarSahurTrRoBot)"
+            secmul, durationn, dur_arr = 1, 0, duration.split(':')
+            for i in range(len(dur_arr)-1, -1, -1):
+                durationn += (int(dur_arr[i]) * secmul)
+                secmul *= 60
+            await bot.send_audio(
+                chat_id=message.chat.id,
+                audio=audio_file, 
+                thumb=thumb,
+                duration=durationn,
                 caption=rep)
     except Exception as e:
         await message.reply_text(e)
