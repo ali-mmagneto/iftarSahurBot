@@ -30,8 +30,4 @@ async def baybay(bot, message):
             photo="https://telegra.ph/file/b9099e8d2f4a7075ec395.jpg",
             caption="Sahibim Bu Kanalda Bulunmamı Onaylamadı Gidiyom Ben..\n\nDestek ile konușabilirsin.",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"Destek", url="https://t.me/mmagneto")]]))
-        try:
-            m.pin()
-        except:
-            pass
         await bot.leave_chat(id)
