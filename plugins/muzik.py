@@ -4,6 +4,7 @@ from youtube_search import YoutubeSearch
 
 @Client.on_message(filters.command('muzik'))
 async def muzikk(bot, message):
+    ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         text = message.text.split(" ", 1)
         aranacak = text[1]
