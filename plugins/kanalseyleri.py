@@ -16,7 +16,8 @@ LOGGER = logging.getLogger(__name__)
 @Client.on_message(filters.group & filters.service)
 async def hosveyabos(bot, cmu: ChatMemberUpdated):
     yeni = cmu.new_chat_member.user_id
-    if yeni == -1005708287366:
+    me = await bot.get_me()
+    if yeni == me.user_id:
         await bot.send_photo(
             chat_id=message.chat.id,
             photo="https://telegra.ph/file/5ea51a7229254f84767f6.jpg",
