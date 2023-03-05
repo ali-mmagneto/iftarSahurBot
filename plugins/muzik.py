@@ -30,7 +30,7 @@ async def muzikk(bot, message):
             await bot.send_audio(
                 chat_id=message.chat.id,
                 audio=audio_file, 
-                thumb=thumb,
+                thumb=thumb_name,
                 duration=durationn,
                 caption=rep)
     except Exception as e:
