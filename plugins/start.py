@@ -10,7 +10,7 @@ async def start(bot, message)
     photo = "https://telegra.ph/file/f3cb49e5aa241bc8a2a8a.jpg"
     await bot.send_photo(
         chat_id=message.chat.id,
-        photo=text, 
+        photo=photo, 
         caption=text, 
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"Beni Oluşturan", url="https://t.me/mmagneto")]]))
         
