@@ -1,6 +1,8 @@
 import pyrogram
 from pyrogram import Client, filters
 from config import OWNER_ID
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+
 
 import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
