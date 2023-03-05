@@ -16,4 +16,20 @@ async def hosveyabos(bot, message):
         photo="https://telegra.ph/file/5ea51a7229254f84767f6.jpg",
         caption='Bu gruba beni eklediğin için teşekkürler. Kullanım için /start yazabilirsin.')
     yenikanal = await bot.get_chat(message.chat.id)
-    await bot.send_message(OWNER_ID, f"#YeniKanalEklenmesi\n\nKanal Adı: {yenikanal.title}\nKanal id: {yenikanal.id}\nEkleyen: {message.from_user.first_name}\nEkleyen id: {message.from_user.id}\n/nEğer bu kanalı sevmediysen `/ayril {yenikanal.id}` komutu ile botu Çıkartabilirsin..")
+    await bot.send_message(OWNER_ID, f"#YeniKanalEklenmesi\n\n**Kanal Adı**: {yenikanal.title}\n**Kanal id**: {yenikanal.id}\n**Ekleyen**: {message.from_user.first_name}\n**Ekleyen id**: {message.from_user.id}\n\nEğer bu kanalı sevmediysen `/ayril {yenikanal.id}` komutu ile botu Çıkartabilirsin..")
+
+@Client.on_message(filters.command('ayril'))
+async def baybay(bot, message):
+    try:
+        text = message.text.split(" ", 1)
+        id = text[1]
+        m = await bot.send_photo(
+            chat_id=id, 
+            photo="https://telegra.ph/file/b9099e8d2f4a7075ec395.jpg",
+            caption="Sahibim Bu Kanalda Bulunmamı Onaylamadı Gidiyom Ben..\n\nDestek ile konușabilirsin.",
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"Destek", url="https://t.me/mmagneto")]]))
+        try:
+            m.pin()
+        except:
+            pass
+        await bot.leave_chat(id)
