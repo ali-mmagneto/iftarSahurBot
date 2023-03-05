@@ -37,5 +37,7 @@ async def muzikk(bot, message):
                 duration=durationn,
                 caption=rep)
             await m.delete()
+        else:
+            await m.edit("`İstediğini Bulamadım 🥱`")
     except Exception as e:
         await message.reply_text(e)
