@@ -5,3 +5,5 @@ requests
 pytz
 git+https://github.com/ytdl-org/youtube-dl
 youtube_search
+shazamio
+telegraph
