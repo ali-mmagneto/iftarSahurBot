@@ -15,7 +15,7 @@ LOGGER = logging.getLogger(__name__)
 
 @Client.on_message(filters.group & filters.service)
 async def hosveyabos(bot: Client, cmu: ChatMemberUpdated):
-    yeni = cmu.new_chat_member.user_id
+    yeni = ChatMemberUpdated.new_chat_member.user_id
     me = await bot.get_me()
     LOGGER.info(me)
     if yeni == me.user_id:
