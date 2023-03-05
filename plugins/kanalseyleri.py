@@ -14,7 +14,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 @Client.on_message(filters.group & filters.service)
-async def hosveyabos(bot, cmu: ChatMemberUpdated):
+async def hosveyabos(bot: Client, cmu: ChatMemberUpdated):
     yeni = cmu.new_chat_member.user_id
     me = await bot.get_me()
     LOGGER.info(me)
