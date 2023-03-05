@@ -36,4 +36,4 @@ async def baybay(bot, message):
             pass
         await bot.leave_chat(id)
     except Exception as e:
-        message.reply_text(e)
+        await message.reply_text(e)
