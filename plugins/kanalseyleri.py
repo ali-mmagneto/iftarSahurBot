@@ -15,15 +15,17 @@ LOGGER = logging.getLogger(__name__)
 
 @Client.on_message(filters.group & filters.service)
 async def hosveyabos(bot, message):
-    LOGGER.info(message.new_chat_members.username)
-    if 1 == 0:
+    yeni = message.from_user
+    ben = await bot.get_me()
+    if  ben.id == yeni.id:
         await bot.send_photo(
             chat_id=message.chat.id,
             photo="https://telegra.ph/file/5ea51a7229254f84767f6.jpg",
             caption='Bu gruba beni eklediğin için teşekkürler. Kullanım için /start yazabilirsin.')
         yenikanal = await bot.get_chat(message.chat.id)
         await bot.send_message(OWNER_ID, f"#YeniKanalEklenmesi\n\n**Kanal Adı**: {yenikanal.title}\n**Kanal id**: {yenikanal.id}\n**Ekleyen**: {message.from_user.first_name}\n**Ekleyen id**: {message.from_user.id}\n\nEğer bu kanalı sevmediysen `/ayril {yenikanal.id}` komutu ile botu Çıkartabilirsin..")
-
+   else:
+       return
 @Client.on_message(filters.command('ayril'))
 async def baybay(bot, message):
     try:
