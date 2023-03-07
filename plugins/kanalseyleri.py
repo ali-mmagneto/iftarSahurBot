@@ -17,7 +17,7 @@ LOGGER = logging.getLogger(__name__)
 async def hosveyabos(bot, message):
     yeni = message.from_user
     ben = await bot.get_me()
-    if  ben.id == yeni.id:
+    if  ben.id = yeni.id:
         await bot.send_photo(
             chat_id=message.chat.id,
             photo="https://telegra.ph/file/5ea51a7229254f84767f6.jpg",
