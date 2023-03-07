@@ -13,7 +13,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 LOGGER = logging.getLogger(__name__)
 
 
-@Client.on_message(filters.group & filters.service)
+@Client.on_message(filters.group & filters.service & filters.new_chat_members)
 async def hosveyabos(bot, message):
     yeni = message.from_user
     ben = await bot.get_me()
