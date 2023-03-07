@@ -17,7 +17,7 @@ LOGGER = logging.getLogger(__name__)
 async def hosveyabos(bot, message):
     yeni = message.from_user
     ben = await bot.get_me()
-    if  ben.id! = yeni.id:
+    if  ben.id != yeni.id:
         return
     else:
         await bot.send_photo(
