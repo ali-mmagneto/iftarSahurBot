@@ -24,8 +24,8 @@ async def hosveyabos(bot, message):
             caption='Bu gruba beni eklediğin için teşekkürler. Kullanım için /start yazabilirsin.')
         yenikanal = await bot.get_chat(message.chat.id)
         await bot.send_message(OWNER_ID, f"#YeniKanalEklenmesi\n\n**Kanal Adı**: {yenikanal.title}\n**Kanal id**: {yenikanal.id}\n**Ekleyen**: {message.from_user.first_name}\n**Ekleyen id**: {message.from_user.id}\n\nEğer bu kanalı sevmediysen `/ayril {yenikanal.id}` komutu ile botu Çıkartabilirsin..")
-   else:
-       return
+    else:
+        return
 @Client.on_message(filters.command('ayril'))
 async def baybay(bot, message):
     try:
