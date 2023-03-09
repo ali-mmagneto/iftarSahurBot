@@ -34,12 +34,22 @@ async def shazamtara(bot, message):
             lyrics = f"{i['sections'][1]['text']}"
             print(lyrics)
             satir = "\n"
-            sarki = f"{i['title']}"
-            unlu = f"{i['subtitle']}" 
+            try:
+                sarki = f"{i['title']}"
+            except:
+                pass
+            try:
+                unlu = f"{i['subtitle']}"
+            except:
+                pass 
+            try:
+                shazamid = f"{i['key']}"
+            except:
+                pass
             link = telegraph.create_page(
                     f"{sarki} Sözleri :d",
                     html_content=lyrics)
-            text = f"**Şarkı**: [{i['title']}]({i['share']['href']})\n**Sanatçı**: {i['subtitle']}\n**Shazam İd**: {i['key']}\n**Lyrics**: {link['url']}"
+            text = f"**Şarkı**: [{i['title']}]({i['share']['href']})\n**Sanatçı**: {i['subtitle']}\n**Shazam İd**: {shazamid}\n**Lyrics**: {link['url']}"
             await bot.send_photo(
                 chat_id = message.chat.id, 
                 photo = photo, 
