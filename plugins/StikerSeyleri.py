@@ -35,7 +35,6 @@ async def donusturucu(bot, message):
         except Exception as e:
             await message.reply_text(e)
     elif message.reply_to_message.sticker:
-        await message.reply_text(message.reply_to_message.sticker)
         if message.reply_to_message.sticker.is_animated == True:
             try:
                 name_format = "downloads/donusturulmusvideo"
