@@ -24,7 +24,7 @@ async def donusturucu(bot, message):
     elif message.reply_to_message.sticker:
         if message.reply_to_message.sticker.is_animated == True:
             try:
-                name_format = "donusturulmusvideo"
+                name_format = "downloads/donusturulmusvideo"
                 gif = await bot.download_media(
                           message = message.reply_to_message,
                           file_name=f"{name_format}.mp4")
