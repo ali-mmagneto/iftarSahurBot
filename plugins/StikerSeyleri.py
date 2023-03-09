@@ -23,7 +23,19 @@ async def donusturucu(bot, message):
         os.remove(image)
     elif message.reply_to_message.sticker:
         await message.reply_text(message.reply_to_message.sticker)
-        if message.reply_to_message.sticker.is_animated == True:
+        elif message.reply_to_message.sticker.is_animated == True:
+            try:
+                name_format = "downloads/donusturulmusvideo"
+                gif = await bot.download_media(
+                          message = message.reply_to_message,
+                          file_name=f"{name_format}.mp4")
+                video = f"{name_format}.mp4"
+                await bot.send_video(
+                    chat_id = message.chat.id, 
+                    video = video) 
+            except Exception as e:
+                await message.reply_text(e)
+        elif message.reply_to_message.sticker.is_video == True:
             try:
                 name_format = "downloads/donusturulmusvideo"
                 gif = await bot.download_media(
