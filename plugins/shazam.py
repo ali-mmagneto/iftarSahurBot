@@ -30,7 +30,10 @@ async def shazamtara(bot, message):
             bilgiler = json.loads(bilgi)
             print(bilgiler)
             i = bilgiler["track"]
-            photo = f"{i['images']['coverart']}"
+            try:
+                photo = f"{i['images']['coverart']}"
+            except:
+                pass
             lyrics = f"{i['sections'][1]['text']}"
             print(lyrics)
             satir = "\n"
@@ -50,10 +53,14 @@ async def shazamtara(bot, message):
                     f"{sarki} Sözleri :d",
                     html_content=lyrics)
             text = f"**Şarkı**: [{i['title']}]({i['share']['href']})\n**Sanatçı**: {i['subtitle']}\n**Shazam İd**: {shazamid}\n**Lyrics**: {link['url']}"
-            await bot.send_photo(
-                chat_id = message.chat.id, 
-                photo = photo, 
-                caption = text)
-            await mes.delete()
+            if photo:
+                await bot.send_photo(
+                    chat_id = message.chat.id, 
+                    photo = photo, 
+                    caption = text)
+                await mes.delete()
+            else:
+                await message.reply_text(text)
+                await mes.delete()
     except Exception as e:
         await message.reply_text(e)
