@@ -22,15 +22,28 @@ async def donusturucu(bot, message):
         os.remove(sticker)
         os.remove(image)
     elif message.reply_to_message.sticker:
-        m = await message.reply_text("`Dönüştürülüyor...`")
-        sticker = await bot.download_media(
-                      message = message.reply_to_message,
-                      file_name=f"{name_format}.webp")
-        await m.edit("`Gönderiyorum...`")
-        im = Image.open(sticker).convert("RGB")
-        im.save(f"{name_format}.jpg", "jpeg")
-        image = f"{name_format}.jpg"
-        await m.reply_photo(image)
-        await m.delete()
-        os.remove(image)
-        os.remove(sticker) 
+        if message.reply_to_message.sticker.is_animated == True:
+            try:
+                name_format = "donusturulmusvideo"
+                gif = await bot.download_media(
+                          message = message.reply_to_message,
+                          file_name=f"{name_format}.mp4")
+                video = f"{name_format}.mp4"
+                await bot.send_video(
+                    chat_id = message.chat.id, 
+                    video = video) 
+            except Exception as e:
+                await message.reply_text(e)
+        else:
+            m = await message.reply_text("`Dönüştürülüyor...`")
+            sticker = await bot.download_media(
+                          message = message.reply_to_message,
+                          file_name=f"{name_format}.webp")
+            await m.edit("`Gönderiyorum...`")
+            im = Image.open(sticker).convert("RGB")
+            im.save(f"{name_format}.jpg", "jpeg")
+            image = f"{name_format}.jpg"
+            await m.reply_photo(image)
+            await m.delete()
+            os.remove(image)
+            os.remove(sticker) 
