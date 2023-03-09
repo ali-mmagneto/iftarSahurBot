@@ -23,7 +23,7 @@ async def donusturucu(bot, message):
         os.remove(image)
     elif message.reply_to_message.sticker:
         await message.reply_text(message.reply_to_message.sticker)
-        elif message.reply_to_message.sticker.is_animated == True:
+        if message.reply_to_message.sticker.is_animated == True:
             try:
                 name_format = "downloads/donusturulmusvideo"
                 gif = await bot.download_media(
