@@ -21,6 +21,19 @@ async def donusturucu(bot, message):
         await m.delete()
         os.remove(sticker)
         os.remove(image)
+    elif message.reply_to_message.video:
+        m = await message.reply_text("`Dönüştürülüyor...`")
+        name_format = f"downloads/donusturulmussticker"
+        image = await bot.download_media(
+                    message = message.reply_to_message,
+                    file_name=f"{name_format}.webm")
+        await m.edit("`Gönderiyorum...`")
+        video = f"{name_format}.webm"
+        try:
+            await message.reply_video(video)
+            await m.delete()
+        except Exception as e:
+            await message.reply_text(e)
     elif message.reply_to_message.sticker:
         await message.reply_text(message.reply_to_message.sticker)
         if message.reply_to_message.sticker.is_animated == True:
