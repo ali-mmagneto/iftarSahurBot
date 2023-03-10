@@ -34,7 +34,7 @@ async def ytvideooo(bot, message):
                 chat_id=message.chat.id,
                 video=video, 
                 thumb=thumb_name,
-                duration=duration,
+                duration=durationn,
                 caption=title)
             await m.delete()
         else:
