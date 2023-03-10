@@ -8,7 +8,6 @@ async def indir(link, ydl_opts):
     command_to_exec = [
         "yt-dlp",
         "-c",
-        "--max-filesize", str(Config.TG_MAX_FILE_SIZE),
         "--embed-subs",
         "-f", ydl_opts,
         "--hls-prefer-ffmpeg", link,
