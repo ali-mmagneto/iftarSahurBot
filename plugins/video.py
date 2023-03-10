@@ -3,7 +3,7 @@ import os, youtube_dl, requests, time
 from youtube_search import YoutubeSearch
 import asyncio
 
-async def indir(link, ydl_opts)
+async def indir(link, ydl_opts):
     download_directory = "downloads/ytvideo.mp4"
     command_to_exec = [
         "yt-dlp",
