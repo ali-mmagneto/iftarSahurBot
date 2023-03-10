@@ -3,7 +3,7 @@ import os, youtube_dl, requests, time
 from youtube_search import YoutubeSearch
 
 @Client.on_message(filters.command('ytvideo'))
-async def ytvideoo(bot, message):
+async def ytvideooo(bot, message):
     ydl_opts = {"format": "bestvideo[ext=mp4]"}
     try:
         m = await message.reply_text("`Arıyorum..`")
