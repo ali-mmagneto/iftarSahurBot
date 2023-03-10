@@ -3,13 +3,13 @@ import os, youtube_dl, requests, time
 from youtube_search import YoutubeSearch
 import asyncio
 
-async def indir(link, ydl_opts):
+async def indir(link):
     download_directory = "downloads/ytvideo.mp4"
     command_to_exec = [
         "yt-dlp",
         "-c",
         "--embed-subs",
-        "-f", ydl_opts,
+        "-f", "bestvideo[ext=mp4]",
         "--hls-prefer-ffmpeg", link,
         "-o", download_directory
     ]
@@ -42,7 +42,7 @@ async def ytvideooo(bot, message):
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
             await m.edit("`Buldum Indiriyorum...`")
-            video = await indir(link, ydl_opts)
+            video = await indir(link)
             rep = f"[İndirildi](https://t.me/iftarSahurTrRoBot)"
             carp, durationn, dur = 1, 0, duration.split(':')
             for i in range(len(dur)-1, -1, -1):
