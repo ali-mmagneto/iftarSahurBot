@@ -8,3 +8,5 @@ youtube_search
 shazamio
 telegraph
 pillow
+git+https://github.com/ali-mmagneto/gerek02
+git+https://github.com/ali-mmagneto/gerek01
