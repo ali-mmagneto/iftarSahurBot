@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 import os, youtube_dl, requests, time
 from youtube_search import YoutubeSearch
-import yt-dlp
+import asyncio
 
 async def indir(link, ydl_opts)
     download_directory = "downloads/ytvideo.mp4"
