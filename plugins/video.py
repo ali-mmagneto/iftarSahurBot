@@ -49,12 +49,14 @@ async def ytvideooo(bot, message):
                 durationn += (int(dur[i]) * carp)
                 carp *= 60
             await m.edit("`Yüklüyorum..`")
+            user = message.from_user
+            caption = f"{title}\n\nVideoyu Isteyen: {user.mention}"
             await bot.send_video(
                 chat_id=message.chat.id,
                 video=video, 
                 thumb=thumb_name,
                 duration=durationn,
-                caption=title)
+                caption=caption)
             await m.delete()
             os.remove(video)
         else:
