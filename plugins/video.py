@@ -4,7 +4,7 @@ from youtube_search import YoutubeSearch
 
 @Client.on_message(filters.command('ytvideo'))
 async def ytvideooo(bot, message):
-    ydl_opts = {"format": "bestvideo[ext=mp4]"}
+    ydl_opts = {"format": "1280x720[ext=mp4]"}
     try:
         m = await message.reply_text("`Arıyorum..`")
         text = message.text.split(" ", 1)
