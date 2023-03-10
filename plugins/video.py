@@ -9,7 +9,7 @@ async def indir(link):
         "yt-dlp",
         "-c",
         "--embed-subs",
-        "-f", "bestvideo[ext=mp4]",
+        "-f", "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio",
         "--hls-prefer-ffmpeg", link,
         "-o", download_directory
     ]
