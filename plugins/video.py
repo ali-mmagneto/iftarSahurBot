@@ -56,6 +56,7 @@ async def ytvideooo(bot, message):
                 duration=durationn,
                 caption=title)
             await m.delete()
+            os.remove(video)
         else:
             await m.edit("`İstediğini Bulamadım 🥱`")
     except Exception as e:
