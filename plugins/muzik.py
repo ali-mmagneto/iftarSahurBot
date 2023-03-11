@@ -90,6 +90,7 @@ async def playlist(bot, message):
                     thumb=thumb_name,
                     duration=durationn,
                     caption=rep))
+            await m.edit(f"`Müzikler Yukleniyor...`")
             await bot.send_media_group(
                 media=muzikler)
             else:
