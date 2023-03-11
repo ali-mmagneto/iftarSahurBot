@@ -5,6 +5,8 @@ import os, youtube_dl, requests, time
 from youtube_search import YoutubeSearch
 import pytube
 
+muzikler = []
+
 @Client.on_message(filters.command('muzik'))
 async def muzikk(bot, message):
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
@@ -84,16 +86,15 @@ async def playlist(bot, message):
                 for i in range(len(dur)-1, -1, -1):
                     durationn += (int(dur[i]) * carp)
                     carp *= 60
-                muzikler = []
                 muzikler.append(InputMediaAudio(
                     media=audio_file, 
                     thumb=thumb_name,
                     duration=durationn,
                     caption=rep))
-                await m.edit(f"`Müzikler Yukleniyor...`")
-                await bot.send_media_group(
-                    media=muzikler)
             else:
                 await m.edit("`İstediğini Bulamadım 🥱`")
+            await m.edit(f"`Müzikler Yukleniyor...`")
+            await bot.send_media_group(
+                media=muzikler)
     except Exception as e:
         await message.reply_text(e)
