@@ -95,6 +95,7 @@ async def playlist(bot, message):
                 await m.edit("`İstediğini Bulamadım 🥱`")
             await m.edit(f"`Müzikler Yukleniyor...`")
             await bot.send_media_group(
+                chat_id=message.chat.id,
                 media=muzikler)
     except Exception as e:
         await message.reply_text(e)
