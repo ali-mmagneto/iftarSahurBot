@@ -87,6 +87,7 @@ async def playlist(bot, message):
                 for i in range(len(dur)-1, -1, -1):
                     durationn += (int(dur[i]) * carp)
                     carp *= 60
+                await m.edit("`{title} Yükleniyor..`")
                 await bot.send_audio(
                     chat_id=message.chat.id,
                     audio=audio_file, 
