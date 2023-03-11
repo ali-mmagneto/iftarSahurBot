@@ -92,7 +92,7 @@ async def playlist(bot, message):
                     audio=audio_file, 
                     thumb=thumb_name,
                     duration=durationn,
-                    caption=rep))  
+                    caption=rep)
             else:
                 await m.edit("`İstediğini Bulamadım 🥱`")
     except Exception as e:
