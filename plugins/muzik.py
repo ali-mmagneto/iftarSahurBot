@@ -54,11 +54,10 @@ async def playlist(bot, message):
         text = message.text.split(" ", 1)
         url = text[1]
         playlist = pytube.Playlist(url)
-        urls = playlist.video_urls
+        urls1 = playlist.video_urls
         text = ""
-        urls1 = list.(urls)
         for url in urls1:
-            text = f"{url}\n"
+            text += f"{url}\n"
         await message.reply_text(text)
         txtdosya = f"downloads/{message.chat.id}.txt"
         with open(txtdosya, 'w') as _urller:
