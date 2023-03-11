@@ -3,6 +3,7 @@
 from pyrogram import Client, filters
 import os, youtube_dl, requests, time
 from youtube_search import YoutubeSearch
+import pytube
 
 @Client.on_message(filters.command('muzik'))
 async def muzikk(bot, message):
