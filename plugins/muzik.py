@@ -56,6 +56,10 @@ async def playlist(bot, message):
         playlist = pytube.Playlist(url)
         urls = playlist.video_urls
         await message.reply_text(urls)
+        txtdosya = f"downloads/{message.chat.id}_Urller.txt"
+        with open(txtdosya, 'w') as urller:
+            urller.write("\n".join(urls))
+        await message.reply_document(txtdosya)
         if 1 == 0:
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 info_dict = ydl.extract_info(link, download=False)
