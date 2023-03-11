@@ -74,7 +74,7 @@ async def playlist(bot, message):
                 thumb_name = f'thumb{message.id}.jpg'
                 thumb = requests.get(thumbnail, allow_redirects=True)
                 open(thumb_name, 'wb').write(thumb.content)
-                await m.edit("`Buldum Indiriyorum...`")
+                await m.edit(f"`{title} Indiriliyor...`")
                 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                     info_dict = ydl.extract_info(link, download=False)
                     audio_file = ydl.prepare_filename(info_dict)
@@ -91,7 +91,6 @@ async def playlist(bot, message):
                     thumb=thumb_name,
                     duration=durationn,
                     caption=rep)
-                await m.delete()
             else:
                 await m.edit("`İstediğini Bulamadım 🥱`")
     except Exception as e:
