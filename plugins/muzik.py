@@ -1,5 +1,5 @@
 # CODED BY :d
-
+from pyrogram.types import InputMediaAudio
 from pyrogram import Client, filters
 import os, youtube_dl, requests, time
 from youtube_search import YoutubeSearch
