@@ -64,7 +64,7 @@ async def playlist(bot, message):
         await message.reply_document(txtdosya)
         for mp in open(txtdosya, 'r', encoding="latin-1"):
             link = mp.split(' ')[0]
-            results = YoutubeSearch(aranacak, max_results=1).to_dict()
+            results = YoutubeSearch(link, max_results=1).to_dict()
             if results:
                 link = f"https://youtube.com{results[0]['url_suffix']}"
                 title = results[0]["title"]
