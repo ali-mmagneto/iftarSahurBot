@@ -43,3 +43,37 @@ async def muzikk(bot, message):
             await m.edit("`İstediğini Bulamadım 🥱`")
     except Exception as e:
         await message.reply_text(e)
+
+
+@Client.on_message(filters.command('playlist'))
+async def playlist(bot, message):
+    ydl_opts = {"format": "bestaudio[ext=m4a]"}
+    try:
+        m = await message.reply_text("`Arıyorum..`")
+        text = message.text.split(" ", 1)
+        aranacak = text[1]
+        playlist = pytube.Playlist(url)
+        urls = playlist.video_urls
+        await message.reply_text(urls)
+        if 1 == 0:
+            with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                info_dict = ydl.extract_info(link, download=False)
+                audio_file = ydl.prepare_filename(info_dict)
+                ydl.process_info(info_dict)
+            rep = f"[İndirildi](https://t.me/iftarSahurTrRoBot)"
+            carp, durationn, dur = 1, 0, duration.split(':')
+            for i in range(len(dur)-1, -1, -1):
+                durationn += (int(dur[i]) * carp)
+                carp *= 60
+            await m.edit("`Yüklüyorum..`")
+            await bot.send_audio(
+                chat_id=message.chat.id,
+                audio=audio_file, 
+                thumb=thumb_name,
+                duration=durationn,
+                caption=rep)
+            await m.delete()
+        else:
+            await m.edit("`İstediğini Bulamadım 🥱`")
+    except Exception as e:
+        await message.reply_text(e)
