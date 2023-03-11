@@ -5,7 +5,7 @@ import os, youtube_dl, requests, time
 from youtube_search import YoutubeSearch
 import pytube
 
-muzikler = []
+
 
 @Client.on_message(filters.command('muzik'))
 async def muzikk(bot, message):
@@ -50,6 +50,7 @@ async def muzikk(bot, message):
 
 @Client.on_message(filters.command('playlist'))
 async def playlist(bot, message):
+    muzikler = []
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         m = await message.reply_text("`Arıyorum..`")
