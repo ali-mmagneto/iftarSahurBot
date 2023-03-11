@@ -87,16 +87,13 @@ async def playlist(bot, message):
                 for i in range(len(dur)-1, -1, -1):
                     durationn += (int(dur[i]) * carp)
                     carp *= 60
-                muzikler.append(InputMediaAudio(
-                    media=audio_file, 
+                await bot.send_audio(
+                    chat_id=message.chat.id,
+                    audio=audio_file, 
                     thumb=thumb_name,
                     duration=durationn,
                     caption=rep))  
             else:
                 await m.edit("`İstediğini Bulamadım 🥱`")
-        await m.edit(f"`Müzikler Yukleniyor...`")
-        await bot.send_media_group(
-            chat_id=message.chat.id,
-            media=muzikler) 
     except Exception as e:
         await message.reply_text(e)
