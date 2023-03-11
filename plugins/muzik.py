@@ -52,7 +52,7 @@ async def playlist(bot, message):
     try:
         m = await message.reply_text("`Arıyorum..`")
         text = message.text.split(" ", 1)
-        aranacak = text[1]
+        url = text[1]
         playlist = pytube.Playlist(url)
         urls = playlist.video_urls
         await message.reply_text(urls)
