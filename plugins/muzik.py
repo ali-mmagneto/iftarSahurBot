@@ -59,9 +59,9 @@ async def playlist(bot, message):
         for url in urls1:
             text += f"{url}\n"
         await message.reply_text(text)
-        txtdosya = f"downloads/{message.chat.id}.txt"
+        txtdosya = f"{message.chat.id}.txt"
         with open(txtdosya, 'w') as _urller:
-            _urller.write(urls)
+            _urller.write(text)
         await message.reply_document(txtdosya)
         if 1 == 0:
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
