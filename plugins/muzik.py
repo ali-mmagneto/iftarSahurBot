@@ -58,12 +58,12 @@ async def playlist(bot, message):
         text = ""
         for url in urls1:
             text += f"{url}\n"
-        await message.reply_text(text)
         txtdosya = f"{message.chat.id}.txt"
         with open(txtdosya, 'w') as _urller:
             _urller.write(text)
         await message.reply_document(txtdosya)
-        if 1 == 0:
+        for mp in open(txtdosya, 'r', encoding="latin-1"):
+            link = mp.split(' ')[0]
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 info_dict = ydl.extract_info(link, download=False)
                 audio_file = ydl.prepare_filename(info_dict)
