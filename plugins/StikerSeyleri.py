@@ -5,8 +5,6 @@ import re
 import asyncio
 
 async def videotostic(video):
-async def videobirlestirici(msg, input_file, bot, message):
-    start = time.time()
     output = "sticker.webm"
     output_vid = f"downloads/{output}"
     command = [
