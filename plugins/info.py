@@ -16,7 +16,7 @@ async def info(bot, message):
                 await message.reply_photo(photo.file_id, caption=caption) 
         else:
             text = message.from_user
-            if text.is_premium == false:
+            if text.is_premium == "false":
                 pre = "Normal Üye"
             else:
                 pre = "Premium Üye" 
