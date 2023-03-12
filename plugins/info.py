@@ -19,7 +19,7 @@ async def info(bot, message):
             text = message.from_user
             async for photo in bot.get_chat_photos(message.reply_to_message.from_user.id, limit=1):
                 LOGGER.info(photo)
-                caption = f"**Adı**: {message.reply_to_message.from_user.first_name}\n**Id**: `{message.reply_to_message.from_user.id}`\n**Dc Id**: {message.reply_to_message.from_user.dc_id}\n**O**: {message.reply_to_message.from_user.mention}"
+                caption = f"**Adı**: {message.reply_to_message.from_user.first_name}\**nKullanıcı Adı**: {message.reply_to_message.from_user.username}\n**Id**: `{message.reply_to_message.from_user.id}`\n**Dc Id**: {message.reply_to_message.from_user.dc_id}\n**O**: {message.reply_to_message.from_user.mention}"
                 await message.reply_photo(photo.file_id, caption=caption) 
     except Exception as e:
         await message.reply_text(e)
