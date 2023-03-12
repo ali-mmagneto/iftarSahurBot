@@ -5,7 +5,7 @@ import re
 import asyncio
 
 async def videotostic(video):
-    output_vid = "sticker.webm"
+    output_vid = "gif.mp4"
     output = f"downloads/{output_vid}"
     command = [
         "ffmpeg",
@@ -56,10 +56,10 @@ async def donusturucu(bot, message):
         await m.edit("`Gönderiyorum...`")
         video = f"{name_format}.webm"
         try:
-            sticker = await videotostic(video) 
-            await bot.send_video_note(
+            gif = await videotostic(video) 
+            await bot.send_video(
                  chat_id=message.chat.id,
-                 video_note=sticker)
+                 video=gif)
             await m.delete()
         except Exception as e:
             await message.reply_text(e)
