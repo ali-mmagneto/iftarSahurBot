@@ -13,7 +13,8 @@ async def info(bot, message):
             await message.reply_text(text)
             async for photo in bot.get_chat_photos(message.chat.id, limit=1):
                 LOGGER.info(photo)
-                await message.reply_photo(photo.file_id) 
+                caption = f"Grup Adı: {text.title}\nGrup Id: {text.id}\n\nSenin Adın:{message.from_user.first_name}\nSenin Id: {message.from_user.id}\nSen: {message.from_user.mention}"
+                await message.reply_photo(photo.file_id, caption=caption) 
         else:
             text = message.from_user
             await message.reply_text(text)
