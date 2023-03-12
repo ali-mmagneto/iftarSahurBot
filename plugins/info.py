@@ -10,5 +10,5 @@ async def info(bot, message):
         else:
             text = message.from_user
             await message.reply_text(text)
-     except Exception as e:
-         await message.reply_text(e)
+    except Exception as e:
+        await message.reply_text(e)
