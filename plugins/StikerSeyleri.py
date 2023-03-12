@@ -1,6 +1,6 @@
 from pyrogram import Client, filters 
 from PIL import Image
-
+import os
 import re
 import asyncio
 
@@ -61,6 +61,8 @@ async def donusturucu(bot, message):
                  chat_id=message.chat.id,
                  video=gif)
             await m.delete()
+            os.remove(gif)
+            os.remove(video)
         except Exception as e:
             await message.reply_text(e)
     elif message.reply_to_message.sticker:
