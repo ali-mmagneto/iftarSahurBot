@@ -12,6 +12,7 @@ async def info(bot, message):
             text = await bot.get_chat(message.chat.id)
             await message.reply_text(text)
             async for photo in bot.get_chat_photos(message.chat.id, limit=1):
+                LOGGER.info(photo)
                 await message.reply_photo(photo) 
         else:
             text = message.from_user
