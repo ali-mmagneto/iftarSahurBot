@@ -26,9 +26,9 @@ async def donusturucu(bot, message):
         name_format = f"downloads/donusturulmussticker"
         image = await bot.download_media(
                     message = message.reply_to_message,
-                    file_name=f"{name_format}.webm")
+                    file_name=f"{name_format}.tgs")
         await m.edit("`Gönderiyorum...`")
-        video = f"{name_format}.webm"
+        video = f"{name_format}.tgs"
         try:
             await bot.send_sticker(
                  chat_id=message.chat.id,
