@@ -29,7 +29,7 @@ async def donusturucu(bot, message):
                     file_name=f"{name_format}.webm")
         await m.edit("`Gönderiyorum...`")
         video = f"{name_format}.webm"
-        await bot.send_sticker(video)
+        await message.reply_sticker(video)
         try:
             await message.reply_sticker(video)
             await m.delete()
