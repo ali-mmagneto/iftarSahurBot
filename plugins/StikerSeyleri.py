@@ -29,9 +29,10 @@ async def donusturucu(bot, message):
                     file_name=f"{name_format}.webm")
         await m.edit("`Gönderiyorum...`")
         video = f"{name_format}.webm"
-        await message.reply_sticker(video)
         try:
-            await message.reply_sticker(video)
+            await bot.send_sticker(
+                 chat_id=message.chat.id,
+                 sticker=video)
             await m.delete()
         except Exception as e:
             await message.reply_text(e)
