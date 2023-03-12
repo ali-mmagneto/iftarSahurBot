@@ -10,14 +10,12 @@ async def info(bot, message):
     try:
         if not message.reply_to_message:
             text = await bot.get_chat(message.chat.id)
-            await message.reply_text(text)
             async for photo in bot.get_chat_photos(message.chat.id, limit=1):
                 LOGGER.info(photo)
                 caption = f"**Grup Adı**: {text.title}\n**Grup Id**: `{text.id}`\n\n**Senin Adın**: {message.from_user.first_name}\n**Senin Kullanıcı Adı**: @{message.from_user.username}**Senin Id**: `{message.from_user.id}`\n**Senin Dc**: {message.from_user.dc_id}\n**Sen**: {message.from_user.mention}"
                 await message.reply_photo(photo.file_id, caption=caption) 
         else:
             text = message.from_user
-            await message.reply_text(text)
             if text.is_premium == false:
                 pre = "Normal Üye"
             else:
