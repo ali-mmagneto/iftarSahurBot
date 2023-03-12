@@ -8,12 +8,7 @@ LOGGER = logging.getLogger(__name__)
 @Client.on_message(filters.command('bilgi'))
 async def info(bot, message):
     try:
-        if not message.reply_to_message:
-            async for photo in bot.get_chat_photos(message.chat.id, limit=1):
-                LOGGER.info(photo)
-                caption = f"**Grup Adı**: {message.chat.title}\n**Grup Id**: `{message.chat.id}`\n\n**Senin Adın**: {message.from_user.first_name}\n**Senin Kullanıcı Adı**: @{message.from_user.username}\n**Senin Id**: `{message.from_user.id}`\n**Senin Dc**: {message.from_user.dc_id}\n**Sen**: {message.from_user.mention}"
-                await message.reply_photo(photo.file_id, caption=caption) 
-        else:
+        if message.reply_to_message:
             text = message.from_user
             if text.is_premium == False:
                 pre = "Normal Üye"
@@ -23,5 +18,7 @@ async def info(bot, message):
                 LOGGER.info(photo)
                 caption = f"**Adı**: {message.reply_to_message.from_user.first_name}\n**Durum**: {pre}\n**Kullanıcı Adı**: @{message.reply_to_message.from_user.username}\n**Id**: `{message.reply_to_message.from_user.id}`\n**Dc Id**: {message.reply_to_message.from_user.dc_id}\n**O**: {message.reply_to_message.from_user.mention}"
                 await message.reply_photo(photo.file_id, caption=caption) 
+        else:
+            return
     except Exception as e:
         await message.reply_text(e)
