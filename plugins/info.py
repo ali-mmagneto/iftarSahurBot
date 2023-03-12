@@ -7,7 +7,7 @@ async def info(bot, message):
         if not message.reply_to_message:
             text = await bot.get_chat(message.chat.id)
             await message.reply_text(text)
-            t = await bot.get_chat_photos(message.chat.id)
+            t = bot.get_chat_photos(message.chat.id)
             await message.reply_text(t)
         else:
             text = message.from_user
