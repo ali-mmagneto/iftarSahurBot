@@ -1,7 +1,35 @@
 from pyrogram import Client, filters 
 from PIL import Image
 
+import re
+import asyncio
 
+async def videotostic(video):
+async def videobirlestirici(msg, input_file, bot, message):
+    start = time.time()
+    output = "sticker.webm"
+    output_vid = f"downloads/{output}"
+    command = [
+        "ffmpeg",
+        "-i",
+        video,
+        "-map",
+        "0:v",
+        "-c:v",
+        "copy",
+        "-y", 
+        output
+    ]
+    process = None
+    try:
+        process = await asyncio.create_subprocess_exec(
+            *command,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+        )
+        return output
+    except Exception as e:
+        LOGGER.info(e)
 
 @Client.on_message(filters.command('donustur'))
 async def donusturucu(bot, message):
@@ -26,13 +54,14 @@ async def donusturucu(bot, message):
         name_format = f"downloads/donusturulmussticker"
         image = await bot.download_media(
                     message = message.reply_to_message,
-                    file_name=f"{name_format}.tgs")
+                    file_name=f"{name_format}.webm")
         await m.edit("`Gönderiyorum...`")
-        video = f"{name_format}.tgs"
+        video = f"{name_format}.webm"
         try:
+            sticker = await videotostic(video) 
             await bot.send_sticker(
                  chat_id=message.chat.id,
-                 sticker=video)
+                 sticker=sticker)
             await m.delete()
         except Exception as e:
             await message.reply_text(e)
