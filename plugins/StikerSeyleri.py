@@ -57,9 +57,9 @@ async def donusturucu(bot, message):
         video = f"{name_format}.webm"
         try:
             sticker = await videotostic(video) 
-            await bot.send_sticker(
+            await bot.send_video_note(
                  chat_id=message.chat.id,
-                 sticker=sticker)
+                 video_note=sticker)
             await m.delete()
         except Exception as e:
             await message.reply_text(e)
