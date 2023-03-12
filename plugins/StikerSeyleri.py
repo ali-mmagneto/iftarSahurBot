@@ -5,8 +5,8 @@ import re
 import asyncio
 
 async def videotostic(video):
-    output = "sticker.webm"
-    output_vid = f"downloads/{output}"
+    output_vid = "sticker.webm"
+    output = f"downloads/{output_vid}"
     command = [
         "ffmpeg",
         "-i",
